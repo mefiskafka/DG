@@ -122,7 +122,7 @@
 
                 <div class="col-lg-12">
                     <div class="form-group">
-                        {!! Form::label('type','Gerencia') !!}
+                        {!! Form::label('type','Seleccione una Gerencia') !!}
 
                         <div class=".col-xs-6 .col-md-4">
 
@@ -139,16 +139,29 @@
 
                 <div class="col-lg-12">
                     <div class="form-group">
-                        {!! Form::label('type','Coordinación:') !!}
+                        <label for="title">Seleccione una Coordinación:</label>
 
                         <div class=".col-xs-6 .col-md-4">
-
-                            {{ Form::select('departamento', array('' => 'Seleccione coordinación') + $departamento, null, array('class' => 'form-control')) }}
+                            <select name="departamento" class="form-control"></select>
 
                         </div>
                     </div>
 
                 </div>
+
+
+                {{--<div class="col-lg-12">--}}
+                    {{--<div class="form-group">--}}
+                        {{--{!! Form::label('type','Coordinación:') !!}--}}
+
+                        {{--<div class=".col-xs-6 .col-md-4">--}}
+
+                            {{--{{ Form::select('departamento', array('' => 'Seleccione coordinación') + $departamento, null, array('class' => 'form-control')) }}--}}
+
+                        {{--</div>--}}
+                    {{--</div>--}}
+
+                {{--</div>--}}
 
             </div>
 

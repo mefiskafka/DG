@@ -32,8 +32,8 @@
 
 Route::group(['prefix' => 'dg'], function(){
 
-    Route::get('Libreta/ajax',array('as'=>'dg.Libreta.myform','uses'=>'DirectorController@myform'));
-    Route::get('Libreta/ajax/{id}',array('as'=>'dg.Libreta.myform.ajax','uses'=>'DirectorController@myformAjax'));
+//    Route::get('Libreta/ajax',array('as'=>'dg.Libreta.myform','uses'=>'DirectorController@myform'));
+    Route::get('Libreta/create/ajax/{id}',array('as'=>'dg.Libreta.myform','uses'=>'DirectorController@myformAjax'));
 
     Route::resource('Libreta','DirectorController');
     Route::get('Libreta/{id}/destroy', [

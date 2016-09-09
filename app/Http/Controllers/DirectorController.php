@@ -35,26 +35,31 @@ class DirectorController extends Controller
     public function create(){
 //        dd('creando vista create');
         $estructuragerencia = estructuragerencia::lists('gerencia', 'id')->toArray();
-        $departamento = departamento::lists('departamento','id')->toArray();
+
+//        $departamento = departamento::where('estructuragerencia_id',2)->lists('departamento','id')->toArray();
+//        dd($departamento);
         $compania = compania::lists('compania','id')->toArray();
         $puesto = puesto::lists('puesto','id')->toArray();
 
 //        dd($estructuragerencia);
-        return view('dg.Libreta.create',['estructuragerencia' => $estructuragerencia, 'departamento' => $departamento, 'compania' => $compania, 'puesto' => $puesto] );
+//        return view('dg.Libreta.create',['estructuragerencia' => $estructuragerencia, 'departamento' => $departamento, 'compania' => $compania, 'puesto' => $puesto] );
+        return view('dg.Libreta.create',['estructuragerencia' => $estructuragerencia,  'compania' => $compania, 'puesto' => $puesto] );
     }
 
-    public function myform()
-    {
-        $estructuragerencia = DB::table("estructuragerencias")->lists("gerencia","id");
-        return view('dg.Libreta.myform',compact('estructuragerencia'));
-    }
+
 
 
     public function myformAjax($id)
     {
-        $departamento = DB::table("departamento")
-            ->where("estructuragerencia_id",$id)
-            ->lists("departamento","id");
+//        $departamento = DB::table("departamentos")
+//            ->where("estructuragerencia_id",$id)
+//            ->lists("departamento","id");
+//        dd($departamento);
+
+        $departamento = departamento::
+            where("estructuragerencia_id",$id)
+            ->lists("departamento","id")->toArray();
+//        dd($departamento);
         return json_encode($departamento);
     }
 
