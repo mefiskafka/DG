@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class guardiaprograma extends Model
+class guardia_programa extends Model
 {
-    protected $table = 'guardiaprogramas';
+    protected $table = 'guardia_programas';
     protected $fillable = ['programaGuardia', 'Comentario'];
     protected $guarded = ['id'];
 

@@ -12,44 +12,25 @@
     <title>GCSPM</title>
 
     <script src="{{asset('assets/js/jquery-3.0.0.min.js')}}"></script>
-    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
-    <link href="{{ URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('datePicker/css/bootstrap-datepicker.standalone.css')}}">
-
-{{--    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>--}}
     <script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
-
-
-    <!-- Datepicker Files -->
-    {{--<!--href="{{asset('datePicker/css/bootstrap-datepicker3.css')}}"-->--}}
-    <link rel="stylesheet" href="{{URL::asset('datePicker/css/bootstrap-datepicker3.css')}}">
-
-
-    <!-- Languaje -->
     <script src="{{asset('datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>
-
-    <!-- Bootstrap core CSS -->
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-
-    <link href="{{ URL::asset('assets/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet" type="text/css"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Custom styles for this template -->
-    <link href="{{ URL::asset('assets/css/justified-nav.css')}}" rel="stylesheet" type="text/css"/>
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><!--<script src="../../assets/js/ie8-responsive-file-warning.js"></script>--><![endif]-->
-    {{--<script src="assets/js/ie-emulation-modes-warning.js"></script>--}}
-    {{--<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">--}}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]><script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script><script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
+    {{--    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>--}}
 
-<style type="text/css">
 
-  .espacio{
-      margin: 10px 0;
-  }
+    <link href="{{URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('assets/css/calendario.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('assets/css/siderbarIzquierda.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('datePicker/css/bootstrap-datepicker.standalone.css')}}"  rel="stylesheet" type="text/css" >
+    <link href="{{URL::asset('datePicker/css/bootstrap-datepicker3.css')}}"  rel="stylesheet" >
+    <link href="{{URL::asset('assets/css/justified-nav.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('assets/css/ie10-viewport-bug-workaround.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('assets/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css"/>
 
-</style>
 
     <script>
 //      $('#flash-overlay-modal').modal();
@@ -98,10 +79,7 @@
             {{--<li><a href="Compania">Compañias</a></li>--}}
             {{--<li><a href="Puesto">Puestos</a></li>--}}
             <li><a href="Guardia">Programa de Guardia</a></li>
-
-
-
-            <li> <a href="LOGIN">Salir</a></li>
+            <li> <a href="{{ url('/logout')}}">Salir</a></li>
 
           </ul>
         </nav>
@@ -117,12 +95,10 @@
 
     </div> <!-- /container -->
 
-
     <script src="{{ HTML::script('assets/js/bootstrap.min.js')}}"></script>
-
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!-- <script src="{{URL::script('assets/js/ie10-viewport-bug-workaround.js')}}"></script> -->
-
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
   </body>

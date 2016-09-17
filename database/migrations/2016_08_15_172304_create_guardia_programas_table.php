@@ -12,7 +12,7 @@ class CreateGuardiaprogramasTable extends Migration
      */
     public function up()
     {
-        Schema::create('guardiaprogramas', function (Blueprint $table) {
+        Schema::create('guardia_programas', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->date('programaGuardia');
@@ -32,6 +32,6 @@ class CreateGuardiaprogramasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('guardiaprogramas');
+        Schema::drop('guardia_programas');
     }
 }
