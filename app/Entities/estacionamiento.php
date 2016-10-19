@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SystemDirectory\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,6 +13,6 @@ class estacionamiento extends Model
 
 
     function paseVehicular(){
-        return $this->hasOne('App\paseVehicular','');
+        return $this->hasOne('SystemDirectory\paseVehicular','');
     }
 }

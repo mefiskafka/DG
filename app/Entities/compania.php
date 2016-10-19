@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SystemDirectory\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,7 @@ class compania extends Model
 
 
     function compania(){
-        return $this->hasOne('App\directorio');
+        return $this->hasOne('SystemDirectory\directorio');
     }
 
 

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\compania;
-use App\departamento;
-use App\directorio;
-use App\estructuragerencia;
-use App\puesto;
+namespace SystemDirectory\Http\Controllers;
+use SystemDirectory\Entities\ compania;
+use SystemDirectory\Entities\departamento;
+use SystemDirectory\Entities\directorio;
+use SystemDirectory\Entities\estructuragerencia;
+use SystemDirectory\Entities\puesto;
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use SystemDirectory\Http\Requests;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -17,83 +17,58 @@ use Laracasts\Flash\Flash;
 class DirectorController extends Controller
 {
 
-
-
-    public function index(){
-//        dd('estoy en index');
-//        $directorios = diretorio::get();
-//        return view('dg.Libreta.index', ['directorios' => $directorios]);
-       $directorios = directorio::all();
-//        dd($directorios);
-
-//        dd(public_path('something'));
-        return view('dg.Libreta.index')
-                ->with('directorios',$directorios);
-
+    public function home()    {
+        $directorios = directorio::all();
+        return view('home')
+            ->with('directorios',$directorios);
     }
 
-    public function create(){
-//        dd('creando vista create');
-        $estructuragerencia = estructuragerencia::lists('gerencia', 'id')->toArray();
+    public function index()    {
+       $directorios = directorio::all();
+         return view('dg.Libreta.index')
+         ->with('directorios',$directorios);
+    }
 
-//        $departamento = departamento::where('estructuragerencia_id',2)->lists('departamento','id')->toArray();
-//        dd($departamento);
+    public function create() {
+        $estructuragerencia = estructuragerencia::lists('gerencia', 'id')->toArray();
         $compania = compania::lists('compania','id')->toArray();
         $puesto = puesto::lists('puesto','id')->toArray();
-
-//        dd($estructuragerencia);
-//        return view('dg.Libreta.create',['estructuragerencia' => $estructuragerencia, 'departamento' => $departamento, 'compania' => $compania, 'puesto' => $puesto] );
         return view('dg.Libreta.create',['estructuragerencia' => $estructuragerencia,  'compania' => $compania, 'puesto' => $puesto] );
     }
 
+//   public function myformAjax($id)    {
+//        $departamento = departamento::
+//            where("estructuragerencia_id",$id)
+//            ->lists("departamento","id")->toArray();
+//        return json_encode($departamento);
+//    }
 
-
-
-    public function myformAjax($id)
-    {
-//        $departamento = DB::table("departamentos")
-//            ->where("estructuragerencia_id",$id)
-//            ->lists("departamento","id");
-//        dd($departamento);
-
+    public function myformAjax($Libreta, $id)    {
         $departamento = departamento::
-            where("estructuragerencia_id",$id)
-            ->lists("departamento","id")->toArray();
+        where("estructuragerencia_id", $id)
+                     ->lists("departamento","id")->toArray();
 //        dd($departamento);
         return json_encode($departamento);
     }
 
 
-
-
-
-    public function store(Request $request){
-//        dd($request->all());
+   public function store(Request $request){
           $directorio = new directorio($request->all());
           $directorio->save();
           flash( 'Has agregado a <strong>' . $directorio->nombre .' '. $directorio->apeidoPaterno . ' '. $directorio->apeidoMaterno . '</strong> con <strong> Ficha '. $directorio->Ficha . '</strong> exitosamente al directorio');
           Session::flash('Message', 'success');
-
-        return redirect()->route('dg.Libreta.index');
-
+          return redirect()->route('dg.Libreta.index');
     }
 
-    public function destroy($id){
-
+   public function destroy($id){
         $directorio = directorio::find($id);
         $directorio->delete();
         flash( 'Has eliminado a <strong>' . $directorio->nombre .' '. $directorio->apeidoPaterno . ' '. $directorio->apeidoMaterno . '</strong> con <strong> Ficha '. $directorio->Ficha . '</strong> exitosamente del directorio');
         Session::flash('Message', 'warning');
-
         return redirect()->route('dg.Libreta.index');
-
     }
 
-
-
-
-    public function edit($id){
-
+   public function edit($id){
         $directorio = directorio::find($id);
         $estructuragerencia = estructuragerencia::lists('gerencia', 'id')->toArray();
         $departamento = departamento::where('estructuragerencia_id', $directorio->estructuragerencia->id)
@@ -101,22 +76,15 @@ class DirectorController extends Controller
                                     ->toArray();
         $compania = compania::lists('compania','id')->toArray();
         $puesto = puesto::lists('puesto','id')->toArray();
-//        dd($departamento);
-
         return  view('dg.Libreta.edit', compact('directorio', 'estructuragerencia', 'departamento','compania', 'puesto'));
-//                ->with('directorios',$directorio);
-
     }
 
-    public function update(Request $request, $id)
-    {
+   public function update(Request $request, $id) {
         $directorio = directorio::find($id);
         $directorio->update($request->all());
         flash( 'Has Actualizado a <strong>' . $directorio->nombre .' '. $directorio->apeidoPaterno . ' '. $directorio->apeidoMaterno . '</strong> con <strong> Ficha '. $directorio->Ficha . '</strong> exitosamente al directorio');
         Session::flash('Message', 'success');
-
         return redirect()->route('dg.Libreta.index');
-//            ->with('success','Item updated successfully');
     }
 
 

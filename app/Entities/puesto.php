@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SystemDirectory\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,7 +11,7 @@ class puesto extends Model
 
 
     function puesto(){
-        return $this->hasOne('App\puesto');
+        return $this->hasOne('SystemDirectory\puesto');
     }
 
 

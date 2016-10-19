@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SystemDirectory\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,10 +11,10 @@ class paseVehicular extends Model
     protected $guarded =  ['id'];
 
     function directorio(){
-        return $this->belongsTo('App\directorio');
+        return $this->belongsTo('SystemDirectory\Entities\directorio');
     }
     function estacionamiento(){
-        return $this->belongsTo('App\estacionamiento');
+        return $this->belongsTo('SystemDirectory\Entities\estacionamiento');
     }
 
 

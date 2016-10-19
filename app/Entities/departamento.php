@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SystemDirectory\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,8 +14,8 @@ class departamento extends Model
 
 
 
-    function departamento(){
-        return $this->hasOne('App\departamento');
+    function estructuragerencia(){
+        return $this->hasOne('SystemDirectory\Entities\estructuragerencia');
     }
 
 

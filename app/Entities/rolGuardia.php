@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SystemDirectory\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class rolguardia extends Model
     protected $guarded = ['id'];
 
     function guardiaprograma(){
-        return $this->hasOne('App\guardiaPrograma');
+        return $this->hasOne('SystemDirectory\guardiaPrograma');
     }
 }

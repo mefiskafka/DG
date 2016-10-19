@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layout.principal')
 
 @section('content')
         <!-- Example row of columns -->
@@ -7,9 +7,9 @@
     <br/>
     <h2 class="sub-header">Parque Vehicular de la GCSPM</h2>
     <div class="table-responsive">
-
-        <a  href="{{ route('paseVehicular.create')  }}" class="btn btn-info espacio">Registrar Nuevo</a>
-
+        @if (Auth::check())
+            <a  href="{{ route('paseVehicular.create')  }}" class="btn btn-info espacio">Registrar Nuevo</a>
+        @endif
 
         {{--=========================================--}}
         {{--Analizando este codifgo--}}
@@ -35,7 +35,9 @@
                 <th>Nombre</th>
                 <th>Estacionamiento</th>
                 <th>Número de Pase</th>
+             @if (Auth::check())
                 <th>Accción</th>
+              @endif
                 {{--<th>Compañia</th>--}}
             </tr>
             </thead>
@@ -51,11 +53,12 @@
                     <td>{{$e->estacionamiento->nombre}}</td>
                     <td>{{$e->numPase}}</td>
 
-
+                    @if (Auth::check())
                      <td>
                         <a href="{{route('paseVehicular.edit', $e->id) }}"  class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                         <a href="{{route('paseVehicular.destroy', $e->id) }}" onclick="return confirm('Deseas borrar este registro')" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
                     </td>
+                     @endif
 
 
                 </tr>

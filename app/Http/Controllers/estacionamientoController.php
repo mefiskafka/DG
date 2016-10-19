@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SystemDirectory\Http\Controllers;
 
-use App\estacionamiento;
+use SystemDirectory\estacionamiento;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use SystemDirectory\Http\Requests;
 use Illuminate\Support\Facades\Session;
 
 class estacionamientoController extends Controller

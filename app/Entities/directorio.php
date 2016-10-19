@@ -1,10 +1,12 @@
 <?php
 
-namespace App;
+namespace SystemDirectory\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class directorio extends Model
+
 {
     //
     protected $table = 'directorios';
@@ -15,19 +17,19 @@ class directorio extends Model
     protected $guarded =  ['id'];
 
     function compania(){
-        return $this->belongsTo('App\compania');
+        return $this->belongsTo('SystemDirectory\Entities\compania');
     }
 
     function puesto(){
-        return $this->belongsTo('App\puesto');
+        return $this->belongsTo('SystemDirectory\Entities\puesto');
     }
 
     function estructuragerencia(){
-        return $this->belongsTo('App\estructuragerencia');
+        return $this->belongsTo('SystemDirectory\Entities\estructuragerencia');
     }
 
     function paseVehicular(){
-        return $this->hasMany('App\paseVehicular');
+        return $this->hasMany('SystemDirectory\Entities\paseVehicular');
     }
 
 

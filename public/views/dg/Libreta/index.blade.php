@@ -8,8 +8,10 @@
     <h2 class="sub-header">Directorio de la Gerencia Construcción, Supervisión, Perforación y Mantenimiento</h2>
     <div class="table-responsive">
 
-        <a  href="{{ route('dg.Libreta.create')  }}" class="btn btn-info espacio">Registrar Nuevo</a>
 
+        @if (Auth::check())
+        <a  href="{{ route('dg.Libreta.create')  }}" class="btn btn-info espacio">Registrar Nuevo</a>
+        @endif
 
         {{--<div class="alert alert-warning alert-dismissible fade in" role="alert">--}}
             {{--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
@@ -41,7 +43,9 @@
                     <th>Puesto</th>
                     <th>Micro</th>
                     <th>Celular</th>
+                    @if (Auth::check())
                     <th>Acción</th>
+                    @endif
                     {{--<th>Compañia</th>--}}
                 </tr>
             </thead>
@@ -58,11 +62,12 @@
                 <td>{{$directorio->puesto->puesto}}</td>
                 <td>{{$directorio->numExt}}</td>
                 <td>{{$directorio->numCelular}}</td>
+                @if (Auth::check())
                 <td>
                     <a href="{{route('dg.Libreta.edit', $directorio->id) }}"  class="btn btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                     <a href="{{route('dg.Libreta.destroy', $directorio->id) }}" onclick="return confirm('Deseas borrar este registro')" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
                 </td>
-
+                @endif
 
             </tr>
             @endforeach

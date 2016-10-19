@@ -118,79 +118,80 @@
                 </div>
 
                 {{--Datos de Gerencia--}}
-                {{--<div class="row">--}}
+                <div class="row">
 
-                    {{--<div class="col-lg-12">--}}
-                        {{--<div class="form-group">--}}
-                            {{--{!! Form::label('type','Gerencia') !!}--}}
 
-                            {{--<div class=".col-xs-6 .col-md-4">--}}
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            {!! Form::label('type','Gerencia') !!}
 
-                                {{--{{ Form::select('estructuragerencia_id', array('' => 'Seleccione Gerencia o Administración') + $estructuragerencia, null, array('class' => 'form-control')) }}--}}
+                            <div class=".col-xs-6 .col-md-4">
+                                {{--{{ Form::select('directorio_id', $directorio, null, array('id' => 'directorio_id','class' => 'form-control', 'readonly')) }}--}}
+                                {{ Form::select('estructuragerencia_id', $estructuragerencia,null, array('id' => 'estructuragerencia_id', 'class' => 'form-control')) }}
 
-                            {{--</div>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
+                            </div>
+                        </div>
+                    </div>
 
-                {{--</div>--}}
+                </div>
 
                 {{--Datos Coordinación--}}
-                {{--<div class="row">--}}
+                <div class="row">
 
-                    {{--<div class="col-lg-12">--}}
-                        {{--<div class="form-group">--}}
-                            {{--{!! Form::label('type','Coordinación:') !!}--}}
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            {!! Form::label('type','Departamento') !!}
 
-                            {{--<div class=".col-xs-6 .col-md-4">--}}
+                            <div class=".col-xs-6 .col-md-4">
 
-                                {{--{{ Form::select('departamento', array('' => 'Seleccione coordinación') + $departamento, null, array('class' => 'form-control')) }}--}}
+                                {{ Form::select('departamento_id', $departamento, null, array('id' => 'departamento_id','class' => 'form-control')) }}
 
-                            {{--</div>--}}
-                        {{--</div>--}}
+                            </div>
+                        </div>
 
-                    {{--</div>--}}
+                    </div>
 
-                {{--</div>--}}
+                </div>
 
                 {{--Compañia Nivel Puesto--}}
-                {{--<div class="row">--}}
-                    {{--<div class="col-lg-4">--}}
-                        {{--<div class="form-group">--}}
-                            {{--{!! Form::label('type','Compañia:') !!}--}}
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            {!! Form::label('type','Compañia:') !!}
 
-                            {{--<div class=".col-xs-6 .col-md-4">--}}
+                            <div class=".col-xs-6 .col-md-4">
 
-                                {{--{{ Form::select('compania_id', array('' => 'Seleccione Compañia') + $compania, null, array('class' => 'form-control')) }}--}}
+                                {{ Form::select('compania_id', $compania, null, array('id' => 'compania_id','class' => 'form-control')) }}
 
-                            {{--</div>--}}
-                        {{--</div>--}}
-
-
-                    {{--</div>--}}
-                    {{--<div class="col-lg-4">--}}
-                        {{--<div class="form-group">--}}
-                            {{--{!! Form::label('nivel', 'Nivel:') !!}--}}
-                            {{--<label for="compania">Compañia:</label>--}}
-                            {{--<div class=".col-xs-6 .col-md-4">--}}
-                                {{--{!! Form::text('nivel',null, ['class' => 'form-control input-md', 'placeholder' => 'Escribe Nivel']) !!}--}}
-                                {{--<span class="help-block">Ej. PEMEX</span>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+                            </div>
+                        </div>
 
 
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            {!! Form::label('nivel', 'Nivel:') !!}
+                            <label for="compania">Compañia:</label>
+                            <div class=".col-xs-6 .col-md-4">
+                                {!! Form::text('nivel',null, ['class' => 'form-control input-md', 'placeholder' => 'Escribe Nivel']) !!}
+                                <span class="help-block">Ej. PEMEX</span>
+                            </div>
+                        </div>
 
-                    {{--</div>--}}
-                    {{--<div class="col-lg-4">--}}
-                        {{--<div class="form-group">--}}
-                            {{--{!! Form::label('type','Puesto:') !!}--}}
-                            {{--<div class=".col-xs-6 .col-md-4">--}}
-                                {{--{{ Form::select('puesto_id', array('' => 'Seleccione puesto') + $puesto, null, array('class' => 'form-control')) }}--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
 
-                    {{--</div>--}}
 
-                {{--</div>--}}
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            {!! Form::label('type','Puesto:') !!}
+                            <div class=".col-xs-6 .col-md-4">
+                                {{ Form::select('puesto_id', $puesto, null, array('id' => 'puesto_id','class' => 'form-control')) }}
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
 
                 {{--Correo de Trabajo--}}
                 <div class="row">
