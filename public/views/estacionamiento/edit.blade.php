@@ -1,5 +1,5 @@
 
-@extends('layout.master')
+@extends('layout.principal')
 
 @section('title', 'Editando Nombre Estacionamiento')
 

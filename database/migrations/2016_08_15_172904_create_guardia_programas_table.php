@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGuardiaprogramasTable extends Migration
+class CreateGuardiaProgramasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -21,6 +21,8 @@ class CreateGuardiaprogramasTable extends Migration
             $table->foreign('directorio_id')->references('id')->on('directorios');
             $table->integer('rolguardia_id')->unsigned();
             $table->foreign('rolguardia_id')->references('id')->on('rolguardias');
+            $table->integer('tipoguardia_id')->unsigned();
+            $table->foreign('tipoguardia_id')->references('id')->on('tipoguardias');
             $table->timestamps();
         });
     }

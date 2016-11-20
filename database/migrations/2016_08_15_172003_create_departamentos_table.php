@@ -5,11 +5,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateDepartamentosTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('departamentos', function (Blueprint $table) {
@@ -17,7 +13,7 @@ class CreateDepartamentosTable extends Migration
             $table->integer('claveDepartamento', false, false)->length(10);
             $table->string('departamento', 50);
             $table->integer('estructuragerencia_id')->unsigned();
-            $table->foreign('estructuragerencia_id')->references('id')->on('estructuragerencias');
+            $table->foreign('estructuragerencia_id')->references('id')->on('estructuragerencias')->onDelete('cascade');
 //            $table->foreign('diretorio_id')->references('id')->on('directorios');
             $table->timestamps();
         });

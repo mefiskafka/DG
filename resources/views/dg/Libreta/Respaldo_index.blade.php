@@ -14,10 +14,9 @@
 
         @if (session()->has('flash_notification.message'))
                 <div class="alert alert-{{ session('flash_notification.level') }} alert-dismissible fade in" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-                {!! session('flash_notification.message') !!}
-            </div>
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {!! session('flash_notification.message') !!}
+                </div>
         @endif
 
         <table class="table table-striped">
@@ -45,7 +44,7 @@
                 <td>{{$directorio->id}}</td>
                 <td>{{$directorio->Ficha}}</td>
                 <td>{{$directorio->nombre ." ". $directorio->apeidoPaterno ." " . $directorio->apeidoMaterno}}</td>
-                <td>{{$directorio->estructuragerencia->abreviatura}}</td>
+                <td>{{$directorio->departamento->estructuragerencia->abreviatura}}</td>    {{-- ->estructuragerencia->abreviatura--}}
                 <td>{{$directorio->puesto->puesto}}</td>
                 <td>{{$directorio->numExt}}</td>
                 <td>{{$directorio->numCelular}}</td>

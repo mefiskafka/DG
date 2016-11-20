@@ -31,7 +31,7 @@ class AuthController extends Controller
     
     
 //    protected $redirectTo = '/';
-       protected $redirectTo = 'dg/Libreta/';
+       protected $redirectTo = '/dg/Libreta';
 
     /**
      * Create a new authentication controller instance.

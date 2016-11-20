@@ -7,8 +7,6 @@ class CreateDirectoriosTable extends Migration
 {
     public function up()
     {
-
-
         Schema::create('directorios', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
@@ -23,12 +21,14 @@ class CreateDirectoriosTable extends Migration
             $table->string('numExt',20)->nullable();
             $table->string('numCelular', 20)->nullable();
             $table->string('numCasa',20)->nullable();
-            $table->integer('estructuragerencia_id')->unsigned();
-            $table->foreign('estructuragerencia_id')->references('id')->on('estructuragerencias');
+            $table->integer('departamento_id')->unsigned();
+            $table->foreign('departamento_id')->references('id')->on('departamentos');
             $table->integer('puesto_id')->unsigned();
             $table->foreign('puesto_id')->references('id')->on('puestos');
             $table->integer('compania_id')->unsigned();
             $table->foreign('compania_id')->references('id')->on('companias');
+            $table->string('privado', 1)->default(0);
+            $table->string('ordenguardia')->default(0);
             $table->timestamps();
         });
     }

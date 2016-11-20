@@ -20,8 +20,7 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 <li class="active"><a href="{{ route('dg.Libreta.index') }}">Home</a></li>
-                {{--Desactivar mientras se crea el sistema--}}
-{{--                <li><a href="{{ route('paseVehicular.index') }}">Pase Vehicular</a></li>--}}
+                <li><a href="{{ route('paseVehicular.index') }}">Pase Vehicular</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->

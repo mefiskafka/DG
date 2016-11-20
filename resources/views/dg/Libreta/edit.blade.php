@@ -141,8 +141,8 @@
                         <div class="form-group">
                             {!! Form::label('type','Departamento') !!}
                             <div class=".col-xs-6 .col-md-4">
-{{--                                {{ Form::select('estructuragerencia_id', array('' => 'Seleccione coordinación') + $departamento, null, array('class' => 'form-control')) }}--}}
-                                <select name="departamento" class="form-control"></select>
+                                {{ Form::select('departamento_id', array('' => 'Seleccione coordinación') + $departamento, null, array('class' => 'form-control')) }}
+                                {{--<select name="departamento" class="form-control"></select>--}}
                             </div>
                         </div>
                     </div>

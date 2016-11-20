@@ -10,14 +10,8 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>GCSPM</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-{{--    <script src="{{asset('assets/js/jquery-3.0.0.min.js')}}"></script>--}}
+    <script src="{{asset('assets/js/jquery-3.0.0.min.js')}}"></script>
     <script src="{{ asset('assets/js/select.js')}}"></script>
     <script src="{{asset('datePicker/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{asset('datePicker/locales/bootstrap-datepicker.es.min.js')}}"></script>

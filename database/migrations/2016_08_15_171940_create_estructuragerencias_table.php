@@ -17,16 +17,10 @@ class CreateEstructuragerenciasTable extends Migration
             $table->integer('claveCentroTrabajo', false, false)->length(15);
             $table->string('abreviatura', 250);
             $table->string('gerencia', 250);
-
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::drop('estructuragerencias');

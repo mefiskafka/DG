@@ -10,7 +10,7 @@ class rolguardia extends Model
     protected $fillable = ['rolGuardia'];
     protected $guarded = ['id'];
 
-    function guardiaprograma(){
-        return $this->hasOne('SystemDirectory\guardiaPrograma');
+    function guardias_programas(){
+        return $this->hasMany('SystemDirectory\Entitites\guardia_programa');
     }
 }

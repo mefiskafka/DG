@@ -2,7 +2,7 @@
 
 namespace SystemDirectory\Http\Controllers;
 
-use SystemDirectory\estacionamiento;
+use SystemDirectory\Entities\estacionamiento;
 use Illuminate\Http\Request;
 
 use SystemDirectory\Http\Requests;

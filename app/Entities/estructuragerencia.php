@@ -9,7 +9,8 @@ class estructuragerencia extends Model
     //
     protected $table = "estructuragerencias";
 
+
     function departamento(){
-        return $this->belongsTo('SystemDirectory\Entities\departamento');
+        return $this->hasMany('SystemDirectory\Entities\departamento');
     }
 }

@@ -1,9 +1,9 @@
 <?php
     Route::group(['prefix' => 'dg'], function(){
-//        Route::get('Libreta/create/ajax/{id}',
-//            array('as'=>'dg.Libreta.myform',
-//            'uses'=>'DirectorController@myformAjax')
-//        );
+        Route::get('Libreta/create/ajax/{id}',
+            array('as'=>'dg.Libreta.myform',
+            'uses'=>'DirectorController@myformAjax')
+        );
         Route::get('Libreta/{Libreta}/edit/ajax/{id}',
             array('as'=>'dg.Libreta.myform',
                 'uses'=>'DirectorController@myformAjax')
@@ -16,6 +16,8 @@
                 'as' => 'dg.Libreta.destroy'
             ]);
     });
+//Programa de guardias
+Route::resource('guardias','guardiasController');
 
 //paseVehicularController
 Route::group(['' => ''], function(){
@@ -39,8 +41,8 @@ Route::group(['' => ''], function(){
     Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail');
     Route::post('password/reset', 'Auth\PasswordController@reset');
 
-    Route::get('/home', 'DirectorController@home');
-    // Route::get('/home', 'HomeController@index');
+//    Route::get('/home', 'DirectorController@home');
+//     Route::get('/home', 'HomeController@index');
 
 
 

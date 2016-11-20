@@ -18,15 +18,25 @@ class DirectorController extends Controller
 {
 
     public function home()    {
-        $directorios = directorio::all();
+        $directorios = directorio::with('departamento')
+            ->orderBy('departamento_id', 'Asc')
+            ->orderBy('nivel', 'Desc')
+            ->orderBy('apeidoPaterno', 'Asc')
+            ->orderBy('apeidoMaterno', 'Asc')
+            ->get();
         return view('home')
             ->with('directorios',$directorios);
     }
 
-    public function index()    {
-       $directorios = directorio::all();
-         return view('dg.Libreta.index')
-         ->with('directorios',$directorios);
+    public function index(){
+//        $directorios = directorio::all()->toArray();
+//                                    ->orderBy('departamento_id', 'Asc')
+//                                    ->orderBy('nivel', 'Desc')
+//                                    ->orderBy('apeidoPaterno', 'Asc')
+//                                    ->orderBy('apeidoMaterno', 'Asc');
+        $departamentos = departamento::get();
+         return view('dg.Libreta.index', compact('departamentos'));
+//        return view('dg.Libreta.index')->with( 'directorios', $directorios, 'estructuragerencias', $estructuragerencias, 'departamentos', $departamentos);
     }
 
     public function create() {
@@ -36,24 +46,40 @@ class DirectorController extends Controller
         return view('dg.Libreta.create',['estructuragerencia' => $estructuragerencia,  'compania' => $compania, 'puesto' => $puesto] );
     }
 
-//   public function myformAjax($id)    {
+   public function myformAjax($id)    {
+       $estructuragerencia = estructuragerencia::find($id);
+//       dd($estructuragerencia);
+       $departamento = departamento::where('estructuragerencia_id', $estructuragerencia->id)
+                                          ->lists('departamento', 'id')->toArray();
+         return json_encode($departamento);
+    }
+
+//    public function myformAjax($Libreta, $id)    {
 //        $departamento = departamento::
-//            where("estructuragerencia_id",$id)
-//            ->lists("departamento","id")->toArray();
+//        where("estructuragerencia_id", $id)
+//                     ->lists("departamento","id")->toArray();
+////        dd($departamento);
 //        return json_encode($departamento);
 //    }
 
-    public function myformAjax($Libreta, $id)    {
-        $departamento = departamento::
-        where("estructuragerencia_id", $id)
-                     ->lists("departamento","id")->toArray();
-//        dd($departamento);
-        return json_encode($departamento);
-    }
 
-
-   public function store(Request $request){
-          $directorio = new directorio($request->all());
+   public function store(Request $request)
+   {
+       $this->validate($request,  [
+            'Ficha' =>  ['required', 'max:11' ],
+           'nombre' =>  ['required', 'max:20' ],
+           'apeidoPaterno' =>  ['required', 'max:20' ],
+           'emailTrabajo' =>  ['required', 'max:40' ],
+           'departamento_id' =>  ['required' ],
+           'puesto_id' =>  ['required' ],
+           'compania_id' =>  ['required' ]
+       ]);
+                 $directorio = new directorio($request->only([
+                                                                                                'Ficha', 'nombre', 'apeidoPaterno', 'apeidoMaterno', 'emailTrabajo',
+                                                                                                'emailPersonal', 'cumpleaños', 'nivel','numExt', 'numCelular',
+                                                                                                'numCasa', 'departamento_id', 'puesto_id','compania_id'
+                                                                                             ])
+                                                                );
           $directorio->save();
           flash( 'Has agregado a <strong>' . $directorio->nombre .' '. $directorio->apeidoPaterno . ' '. $directorio->apeidoMaterno . '</strong> con <strong> Ficha '. $directorio->Ficha . '</strong> exitosamente al directorio');
           Session::flash('Message', 'success');
@@ -70,10 +96,13 @@ class DirectorController extends Controller
 
    public function edit($id){
         $directorio = directorio::find($id);
-        $estructuragerencia = estructuragerencia::lists('gerencia', 'id')->toArray();
-        $departamento = departamento::where('estructuragerencia_id', $directorio->estructuragerencia->id)
-                                    ->lists('departamento', 'id')
-                                    ->toArray();
+        $estructuragerencia = estructuragerencia::where('id', $directorio->departamento->estructuragerencia_id)
+                                                ->lists( 'gerencia', 'id')->toArray();
+        $departamento = departamento::where('estructuragerencia_id', $directorio->departamento->estructuragerencia->id)
+                                                ->lists('departamento', 'id')->toArray();
+//       dd($departamento);
+//        $departamento = departamento::lists('departamento', 'id')
+//                                    ->toArray();
         $compania = compania::lists('compania','id')->toArray();
         $puesto = puesto::lists('puesto','id')->toArray();
         return  view('dg.Libreta.edit', compact('directorio', 'estructuragerencia', 'departamento','compania', 'puesto'));
@@ -81,7 +110,12 @@ class DirectorController extends Controller
 
    public function update(Request $request, $id) {
         $directorio = directorio::find($id);
-        $directorio->update($request->all());
+        $directorio->update($request->only([
+                                                                                'Ficha', 'nombre', 'apeidoPaterno', 'apeidoMaterno', 'emailTrabajo',
+                                                                                'emailPersonal', 'cumpleaños', 'nivel','numExt', 'numCelular',
+                                                                                'numCasa', 'departamento_id', 'puesto_id','compania_id'
+                                                                             ])
+                                              );
         flash( 'Has Actualizado a <strong>' . $directorio->nombre .' '. $directorio->apeidoPaterno . ' '. $directorio->apeidoMaterno . '</strong> con <strong> Ficha '. $directorio->Ficha . '</strong> exitosamente al directorio');
         Session::flash('Message', 'success');
         return redirect()->route('dg.Libreta.index');

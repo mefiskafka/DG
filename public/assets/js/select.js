@@ -12,17 +12,17 @@
                 $.ajax({
                     dataType: "json",
                     type: "GET",
-                    url: 'edit/ajax/'+estructuragerencia_id,
+                    url: 'create/ajax/'+estructuragerencia_id,
                     success:function(data) {
 //              alert(data);
-                        $('select[name="departamento"]').empty();
+                        $('select[name="departamento_id"]').empty();
                         $.each(data, function(key, value) {
-                            $('select[name="departamento"]').append('<option value="'+ key +'">'+ value +'</option>');
+                            $('select[name="departamento_id"]').append('<option value="'+ key +'">'+ value +'</option>');
                         });
                     }
                 });
             }else{
-                $('select[name="departamento"]').empty();
+ $('select[name="departamento_id"]').empty();
             }
         });
     });

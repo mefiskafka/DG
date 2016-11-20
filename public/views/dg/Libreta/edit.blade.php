@@ -1,18 +1,18 @@
-@extends('layout.master')
+@extends('layout.principal')
 
 @section('title', 'Editar Trabajador')
 
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            {!! Form::model($directorio, ['method' => 'PATCH','route' => ['dg.Libreta.update', $directorio->id]]) !!}
+            {!! Form::model($directorio, ['method' => 'PATCH','route' => ['dg.Libreta.update', $directorio->id],'name'=>'editar', 'id'=>$directorio->id]) !!}
 {{--            {!! Form::open(['route' => 'dg.Libreta.update', 'method' => 'PUT']) !!}--}}
             {{csrf_field()}}
 
             <br/>
             <br/>
             <br/>
-
+            <input name="identificador" id="identificador" value="{{$directorio->id}}" type="hidden">
             <fieldset>
                 <legend>Editar directorio</legend>
                 {{--Ficha Cumpleaños--}}
@@ -137,20 +137,15 @@
 
                 {{--Datos Coordinación--}}
                 <div class="row">
-
                     <div class="col-lg-12">
                         <div class="form-group">
                             {!! Form::label('type','Departamento') !!}
-
                             <div class=".col-xs-6 .col-md-4">
-
-                                {{ Form::select('departamento_id', $departamento, null, array('id' => 'departamento_id','class' => 'form-control')) }}
-
+                                {{ Form::select('departamento_id', array('' => 'Seleccione coordinación') + $departamento, null, array('class' => 'form-control')) }}
+                                {{--<select name="departamento" class="form-control"></select>--}}
                             </div>
                         </div>
-
                     </div>
-
                 </div>
 
                 {{--Compañia Nivel Puesto--}}
@@ -196,7 +191,6 @@
                 {{--Correo de Trabajo--}}
                 <div class="row">
                     <div class="col-lg-8">
-
                         <div class="form-group">
                             {!! Form::label('emailTrabajo', 'E-mail de Trabajo:') !!}
                             {{--<label for="compania">Compañia:</label>--}}
@@ -205,11 +199,7 @@
                                 {{--<span class="help-block">Ej. PEMEX</span>--}}
                             </div>
                         </div>
-
-
                     </div>
-
-
                 </div>
 
                 {{--Correo Personal--}}
