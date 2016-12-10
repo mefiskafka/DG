@@ -4,18 +4,22 @@
 @section('title', 'Crear Trabajador')
 
 @section('content')
+
+@include('partials/errors')
+
+ <br>
+
 <div class="row">
     <div class="col-lg-12">
     {!! Form::open(['route' => 'dg.Libreta.store', 'method' => 'POST']) !!}
         {{csrf_field()}}
 
-        <br/>
-        <br/>
-        <br/>
+
 
         <fieldset>
             <legend>Creacion de directorio</legend>
             {{--Ficha Cumpleaños--}}
+
             <div class="row">
                 <div class="col-lg-8">
                     <div class="form-group">
@@ -31,7 +35,7 @@
                         {{--<label for="cumpleaños">Cumpleaños:</label>--}}
                         {{--id="datepicker"--}}
                         <div  class="input-append date input-group .col-md-4">
-                            {!! Form::text('cumpleaños',null, ['class' => 'form-control', 'required', 'readonly']) !!}
+                            {!! Form::text('cumpleaños',null, ['class' => 'form-control',  'readonly']) !!}
                             {{--<input id="cumpleaños" name="cumpleaños" value="{{$cumpleaños}}" type="text" placeholder="Escribe Fecha Cumpleaños" class="form-control" readonly>--}}
                             <div class="input-group-addon">
                                 <span class="glyphicon glyphicon-th"></span>

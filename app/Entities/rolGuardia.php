@@ -10,7 +10,11 @@ class rolguardia extends Model
     protected $fillable = ['rolGuardia'];
     protected $guarded = ['id'];
 
-    function guardias_programas(){
-        return $this->hasMany('SystemDirectory\Entitites\guardia_programa');
+//    function guardia_programa(){
+//        return $this->hasMany(guardia_programa::class, 'guardia_programa_id');
+//    }
+    function PersonalGuardia(){
+        return $this->belongsToMany(directorio::class, 'guardia_programas', 'directorio_id');
     }
+
 }

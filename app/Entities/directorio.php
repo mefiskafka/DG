@@ -32,9 +32,16 @@ class directorio extends Model
         return $this->hasMany('SystemDirectory\Entities\paseVehicular');
     }
 
-    function guardia_programa(){
-        return $this->hasMany('SystemDirectory\Entities\guardia_programa');
-//        return $this->belongsTo('SystemDirectory\Entities\guardia_programa');
+//    function guardia_programa(){
+//        return $this->hasMany(guardia_programa::class, 'guardia_programa_id');
+//    }
+
+    function Roles(){
+        return $this->belongsToMany(rolGuardia::class, 'guardia_programas', 'rolguardia_id');
+    }
+
+    function TipoGuardia(){
+        return $this->belongsToMany(tipoguardia::class, 'guardia_programas', 'tipoguardia_id');
     }
 
 }

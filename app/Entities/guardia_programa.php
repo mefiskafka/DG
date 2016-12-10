@@ -10,15 +10,14 @@ class guardia_programa extends Model
     protected $fillable = ['programaGuardia', 'Comentario', 'directorio_id', 'rolguardia_id', 'tipoguardia_id'];
     protected $guarded = ['id'];
 
-    function directorio(){
-        return $this->belongsTo('SystemDirectory\Entities\directorio');
-//        return $this->hasOne('SystemDirectory\Entities\directorio');
-    }
-    function rolguardia(){
-        return $this->belongsTo('SystemDirectory\Entitites\rolGuardia');
-    }
-    function tipoguardia(){
-        return $this->belongsTo('SystemDirectory\Entitites\tipoguardia');
-    }
+//    function directorio(){
+//        return $this->belongsTo(directorio::class, 'directorio_id');
+//    }
+//    function rolguardia(){
+//        return $this->belongsTo(rolguardia::class, 'rolguardia_id');
+//    }
+//    function tipoguardia(){
+//        return $this->belongsTo(tipoguardia::class, 'tipoguardia_id');
+//    }
 
 }

@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class tipoguardia extends Model
 {
 
-    protected $table = 'tipoguardia';
+    protected $table = 'tipoguardias';
     protected $fillable = ['tipoguardia'];
     protected $guarded = ['id'];
 
-    function guardias_programas(){
-        return $this->hasMany('SystemDirectory\Entities\guardia_programa');
+//    function guardia_programa(){
+//        return $this->hasMany(guardia_programa::class, 'guardia_programa_id');
+//    }
+    function TipoGuardia(){
+        return $this->belongsToMany(directorio::class, 'guardia_programas', 'directorio_id');
     }
 }
