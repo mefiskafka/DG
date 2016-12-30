@@ -36,12 +36,20 @@ class directorio extends Model
 //        return $this->hasMany(guardia_programa::class, 'guardia_programa_id');
 //    }
 
-    function Roles(){
-        return $this->belongsToMany(rolGuardia::class, 'guardia_programas', 'rolguardia_id');
+    function dRoles(){
+        return $this->belongsToMany(rolGuardia::class, 'guardia_programas')->withPivot('Comentario', 'tipoguardia_id');
     }
 
-    function TipoGuardia(){
-        return $this->belongsToMany(tipoguardia::class, 'guardia_programas', 'tipoguardia_id');
+    function dTipoGuardia(){
+        return $this->belongsToMany(tipoguardia::class, 'guardia_programas')->withPivot('Comentario', 'rolguardia_id');
     }
+
+    function dGuardia(){
+        return $this->belongsToMany(guardiabyear::class, 'guardia_programas')->withPivot('Comentario', 'guardiabyear_id');
+    }
+
+//    public function rolesporPersona(){
+//        return $this->hasManyThrough(rolGuardia::class, 'guardia_programa', 'directorio_id', 'guardia_programas_id');
+//    }
 
 }

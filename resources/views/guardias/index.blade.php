@@ -6,8 +6,9 @@
     <br/>
     <br/>
     <h2 class="sub-header">Guardias</h2>
+{{-- @foreach($personals as $guardia) --}}
+     @foreach($personals as $gerencias)
 
-    @foreach($personals as $guardia)
     <div class="table-responsive">
         @if (Auth::check())
         <a  href="{{ route('guardias.create')  }}" class="btn btn-success espacio">Registrar Nueva Guardia</a>
@@ -16,9 +17,16 @@
                 <div class="panel-heading info">
                     <h4>
                         {{--            {{dd($guardia->directorio['nombre'])}}--}}
-                        <strong> {{   $guardia->PersonalGuardia }} </strong> <br/><br/>
-                        {{--<em> <span class="label label-warning">    {{"   ".  $guardia->programaGuardia   }} </span></em>--}}
+
+                        <em> <span class="label label-warning">    {{"   ".  $gerencias->gerencia   }} </span></em>
+                        {{--<em> <span class="label label-warning">    {{"   ".  $guardia->rolGuardia   }} </span></em>--}}
+
+
+
                         {{--<em><span class="label label-success">   {{"           ".  $guardia->rolguardia->rolGuardia   }}</span></em>--}}
+
+
+
                     </h4>
                 </div>
                 <table class="table table-bordered">
@@ -36,10 +44,12 @@
                     </thead>
                     <tbody>
 
-        {{--@foreach($personasG as $personas )--}}
+        @foreach($gerencias->departamento as $p)
+         @foreach($p->directorio as $persona)
                     {{--@include('partials/guardiasfinsemana')--}}
-                    {{--@include('partials/fichas_guardias')--}}
-        {{--@endforeach--}}
+          @include('partials/fichas_guardias')
+          @endforeach
+        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -47,6 +57,7 @@
     </div>
 <br/>
         @endforeach
+
 
 
 </div><!--FIn row-->

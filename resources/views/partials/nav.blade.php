@@ -19,7 +19,10 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li class="active"><a href="{{ route('dg.Libreta.index') }}">Home</a></li>
+                <li class=""><a href="{{ route('dg.Libreta.index') }}">Home</a></li>
+                <li class=""><a href="{{ route('guardias.roles') }}">Rol de Guardia Subdirección</a></li>
+                <li class=""><a href="{{ route('guardias.index') }}">Acumulado Guardia</a></li>
+                <li class="active"><a href="{{ route('guardias.tarjetas') }}">Tarjetas</a></li>
                 {{--Desactivar mientras se crea el sistema--}}
 {{--                <li><a href="{{ route('paseVehicular.index') }}">Pase Vehicular</a></li>--}}
             </ul>

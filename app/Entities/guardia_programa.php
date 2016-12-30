@@ -11,7 +11,7 @@ class guardia_programa extends Model
     protected $guarded = ['id'];
 
 //    function directorio(){
-//        return $this->belongsTo(directorio::class, 'directorio_id');
+//        return $this->belongsTo(directorio::class);
 //    }
 //    function rolguardia(){
 //        return $this->belongsTo(rolguardia::class, 'rolguardia_id');

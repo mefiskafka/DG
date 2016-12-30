@@ -1,11 +1,12 @@
-
-
-{{--{{dd($personas)}}--}}
             <tr>
-                <td> <em> {{"   ".  $guardia->nombre . " ". $guardia->apeidoPaterno." ".$guardia->apeidoMaterno  }}</em></td>
-                <td>{{ $guardia->numExt}}</td>
-                <td>{{$guardia->numCelular}}</td>
-                <td>{{ $guardia->tipoguardia}}</td>
+                <td> <em> {{"   ".  $persona->nombre . " ". $persona->apeidoPaterno." ".$persona->apeidoMaterno  }}</em></td>
+                <td>{{ $persona->numExt}}</td>
+                <td>{{$persona->numCelular}}</td>
+                <td>
+                @foreach($persona->Guardia as $FechaGuardia)
+                              <em><span class="label label-warning">   {{" ". $FechaGuardia->programaGuardia}}</span></em>
+                @endforeach
+                </td>
 
                 @if (Auth::check())
                     <td>
@@ -14,4 +15,3 @@
                     </td>
                 @endif
             </tr>
-

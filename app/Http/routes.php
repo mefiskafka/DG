@@ -8,7 +8,6 @@
             array('as'=>'dg.Libreta.myform',
                 'uses'=>'DirectorController@myformAjax')
         );
-
         Route::resource('Libreta','DirectorController');
         Route::get('Libreta/{id}/destroy',
             [
@@ -16,8 +15,20 @@
                 'as' => 'dg.Libreta.destroy'
             ]);
     });
+
 //Programa de guardias
 Route::resource('guardias','guardiasController');
+
+Route::get('roles', [
+    'uses'  =>  'guardiasController@roles',
+    'as'       =>  'guardias.roles'
+    ]);
+
+Route::get('tarjetas', [
+    'uses'  =>  'guardiasController@tarjetas',
+    'as'       =>  'guardias.tarjetas'
+]);
+
 
 //paseVehicularController
 Route::group(['' => ''], function(){
